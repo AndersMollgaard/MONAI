@@ -1141,7 +1141,7 @@ class RandCropBoxByPosNegLabeld(Randomizable, MapTransform):
                 extended_boxes[:, axis] = boxes_stop[:, axis] - self.spatial_size[axis] // 2 - 1
                 extended_boxes[:, axis] = np.minimum(extended_boxes[:, axis], boxes_start[:, axis])
                 # extended box stop
-                extended_boxes[:, axis + spatial_dims] = extended_boxes[:, axis] + self.spatial_size[axis] // 2
+                extended_boxes[:, axis + spatial_dims] = boxes_start[:, axis] + self.spatial_size[axis] // 2
                 extended_boxes[:, axis + spatial_dims] = np.maximum(
                     extended_boxes[:, axis + spatial_dims], boxes_stop[:, axis]
                 )
